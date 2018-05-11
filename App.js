@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 export default class TextApp extends Component {
     render() {
         return (
-            <Text>
+            <View>
                 <Text>First part and </Text>
                 <Text>second part</Text>
-            </Text>
+            </View>
         );
     }
 }
