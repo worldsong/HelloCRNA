@@ -1,19 +1,18 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Button  } from 'react-native';
 
-export default class ViewColoredBoxesWithText extends Component {
+export default class App extends Component {
+    onPressLearnMore(){
+        alert('Learn more about this purple button')
+    }
     render() {
         return (
-            <View
-                style={{
-                    flexDirection: 'row',
-                    height: 100,
-                    padding: 20,
-                }}>
-                <View style={{backgroundColor: 'blue', flex: 0.3}} />
-                <View style={{backgroundColor: 'red', flex: 0.5}} />
-                <Text>Hello World!</Text>
-            </View>
+            <Button
+                onPress={this.onPressLearnMore}
+                title="Learn More"
+                color="#841584"
+                accessibilityLabel="Learn more about this purple button"
+            />
         );
     }
 }
