@@ -1,13 +1,22 @@
 import React, { Component } from 'react';
-import { Image } from 'react-native';
+import { Text, View } from 'react-native';
 
-export default class Bananas extends Component {
-    render() {
-        let pic = {
-            uri: 'https://upload.wikimedia.org/wikipedia/commons/d/de/Bananavarieties.jpg'
-        };
+class Greeting extends Component {
+    render(){
         return (
-            <Image source={pic} style={{width:400, height: 220}} />
+            <Text>Hello {this.props.name }!</Text>
+        )
+    }
+}
+
+export default class LotsOfGreetings extends Component{
+    render(){
+        return (
+            <View style={{alignItems: 'center'}}>
+                <Greeting name='Song'></Greeting>
+                <Greeting name='Song'></Greeting>
+                <Greeting name='Song'></Greeting>
+            </View>
         )
     }
 }
