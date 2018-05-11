@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 
 var BASE_URL = 'https://api.github.com/repos/facebook/react-native/events';
-
+console.disableYellowBox = true;
+console.warn('YellowBox is disabled.');
 export default class FetchDemo extends Component {
 
     getEvent() {
