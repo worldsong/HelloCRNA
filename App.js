@@ -5,7 +5,7 @@ export default class TextApp extends Component {
     render() {
         return (
             <View>
-                <Text>First part and </Text>
+                hello error.
                 <Text>second part</Text>
             </View>
         );
