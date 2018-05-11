@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 class Blink extends Component {
     constructor(props){
@@ -23,7 +23,7 @@ class Blink extends Component {
 export default class BlinkApp extends Component {
     render() {
         return (
-            <View>
+            <View style={styles.container}>
                 <Blink text='I love to blink' />
                 <Blink text='Yes blinking is so great' />
                 <Blink text='Why did they ever take this out of HTML' />
@@ -32,3 +32,12 @@ export default class BlinkApp extends Component {
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
