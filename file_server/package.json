@@ -1,0 +1,14 @@
+{
+  "name": "file_server",
+  "version": "1.0.0",
+  "description": "express,file,server",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app"
+  },
+  "author": "Song",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.14.0"
+  }
+}

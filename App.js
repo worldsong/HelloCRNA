@@ -1,49 +1,9 @@
-import React, { Component } from 'react';
-import {
-    StyleSheet,
-    Text,
-    View
-} from 'react-native';
+import React, {Component} from 'react';
 
-var BASE_URL = 'https://api.github.com/repos/facebook/react-native/events';
-console.disableYellowBox = true;
-console.warn('YellowBox is disabled.');
-export default class FetchDemo extends Component {
+const BagView = require('./components/BagView');
 
-    getEvent() {
-        // 取得 BASE_URL response 的資料
-        fetch(BASE_URL)
-            .then((res) => res.json())
-            .then((responseData) => {
-                // 單純只做 log
-                console.log(responseData);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .done();
-    }
-
+export default class first extends Component {
     render() {
-        // getEvent 只會 log 出得到的 data, 不會有任何 render
-        this.getEvent();
-
-        return (
-            <View style={styles.container}>
-                <Text>
-                    Welcome to React Native!
-                </Text>
-            </View>
-        );
+        return <BagView />
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    }
-})
