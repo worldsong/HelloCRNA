@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 const BagView = require('./components/BagView');
 const LoginView = require('./components/LoginView');
 const MyScrollView = require('./components/MyScrollView');
+const BannerView = require('./components/BannerView');
 
 export default class first extends Component {
     render() {
@@ -12,6 +13,9 @@ export default class first extends Component {
 /*
         return <LoginView />
 */
+/*
         return <MyScrollView/>
+*/
+        return <BannerView />
     }
 }
