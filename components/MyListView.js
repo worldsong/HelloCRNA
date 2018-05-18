@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { FlatList, StyleSheet, Text, View, Image } from 'react-native';
 
-const BaseUrl = 'http://192.168.56.1:3000/images/';
+const BaseUrl = 'http://192.168.100.16:3000/images/';
 const Dimensions = require('Dimensions');
 const ScreenWidth = Dimensions.get('window').width;
 
