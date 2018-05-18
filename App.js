@@ -27,7 +27,7 @@ class DetailsScreen extends React.Component {
                 />
                 <Button
                     title="再一次跳转到Details页"
-                    onPress={()=> this.props.navigation.navigate('Details')}
+                    onPress={()=> {console.log(this.props.navigation);this.props.navigation.push('Details')}}
                 />
             </View>
         );
