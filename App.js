@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text,Button } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 
 // TabNavigator is deprecated.
 // Please use the createBottomTabNavigator
@@ -18,7 +18,7 @@ const ProfileScreen = () => (
     </View>
 );
 
-const RootTabs = createBottomTabNavigator({
+const RootTabs = createMaterialTopTabNavigator({
     Home: {
         screen: HomeScreen,
     },
