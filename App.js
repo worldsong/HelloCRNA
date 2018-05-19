@@ -2,8 +2,14 @@ import React from 'react';
 import { FlatList, StyleSheet,View, Text,Button,Image } from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+import FindScreen from  './components/wechat/FindScreen'
+import DynamicScreen from  './components/wechat/DynamicScreen'
+import ContactsScreen from  './components/wechat/ContactsScreen'
+import MyScreen from  './components/wechat/MyScreen'
+
 //头部公共组件
-class HeadScreen extends React.Component {
+/*class HeadScreen extends React.Component {
     render() {
         return (
             <View style={{height:35,backgroundColor:'#242529',padding:10}}>
@@ -18,10 +24,10 @@ class HeadScreen extends React.Component {
             </View>
         );
     }
-}
+}*/
 
 //动态组件
-const DynamicScreen = () => (
+/*const DynamicScreen = () => (
     <View style={styles.container}>
         <HeadScreen></HeadScreen>
         <View style={styles.container}>
@@ -39,7 +45,7 @@ const DynamicScreen = () => (
                             <Text><Icon name="ios-chatboxes-outline" color="#000" size={30} /></Text>
                         </View>
                         <View style={{flex:9}}>
-                            <Text style={styles.name}>{item.name}</Text>
+                            <Text onPress={() => this.props.navigation.navigate('find')} style={styles.name}>{item.name}</Text>
                             <Text style={styles.text}>{item.text}</Text>
                             <Text style={styles.time}>{item.time}</Text>
                         </View>
@@ -48,9 +54,9 @@ const DynamicScreen = () => (
             />
         </View>
     </View>
-);
+);*/
 //通讯录组件
-const ContactsScreen = () => (
+/*const ContactsScreen = () => (
     <View style={[styles.container,styles.findBody]}>
         <HeadScreen title="通讯录"></HeadScreen>
         <View style={styles.findView}>
@@ -95,9 +101,9 @@ const ContactsScreen = () => (
         </View>
 
     </View>
-);
+);*/
 //发现组件
-const FindScreen = () => (
+/*const FindScreen = () => (
     <View style={[styles.container,styles.findBody]}>
         <HeadScreen title="发现"></HeadScreen>
         <View style={styles.findView}>
@@ -132,9 +138,9 @@ const FindScreen = () => (
         </View>
 
     </View>
-);
+);*/
 //我的组件
-const MyScreen = () => (
+/*const MyScreen = () => (
     <View style={[styles.container,styles.findBody]}>
         <HeadScreen title="我的"></HeadScreen>
         <View style={styles.findView}>
@@ -177,44 +183,21 @@ const MyScreen = () => (
         </View>
 
     </View>
-);
+);*/
 
 const RootTabs = createMaterialTopTabNavigator({
     dynamic: {
         screen: DynamicScreen,
-        navigationOptions: ({navigation}) => ({
-            title: '动态',
-            tabBarIcon: ({tintColor}) => (
-                <Icon name="ios-text-outline" size={26} color={tintColor} />
-            ),
-        }),
     },
     contacts: {
         screen: ContactsScreen,
-        navigationOptions: ({navigation}) => ({
-            title: '通讯录',
-            tabBarIcon: ({tintColor}) => (
-                <Icon name="ios-contacts-outline" size={26} color={tintColor} />
-            ),
-        }),
+
     },
     find: {
         screen: FindScreen,
-        navigationOptions: ({navigation}) => ({
-            title: '发现',
-            tabBarIcon: ({tintColor}) => (
-                <Icon name="ios-compass-outline" size={26} color={tintColor} />
-            ),
-        }),
     },
     my:{
         screen:MyScreen,
-        navigationOptions: ({navigation}) => ({
-            title: '我的',
-            tabBarIcon: ({tintColor}) => (
-                <Icon name="ios-person-outline" size={26} color={tintColor} />
-            ),
-        })
     }
 },
     {
@@ -246,6 +229,7 @@ const RootTabs = createMaterialTopTabNavigator({
         }
 });
 //组件样式
+/*
 const styles = StyleSheet.create({
     container: {
         flex: 1
@@ -294,5 +278,6 @@ const styles = StyleSheet.create({
         borderTopColor:'#EBEBEB'
     }
 });
+*/
 
 export default RootTabs;
