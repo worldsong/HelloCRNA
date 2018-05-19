@@ -2,7 +2,7 @@ import React from 'react';
 import { FlatList, StyleSheet,View, Text,Button } from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 
-const dynamicScreen = () => (
+const HomeScreen = () => (
     <View style={styles.container}>
         <Text style={styles.news}>新闻列表</Text>
         <FlatList
@@ -21,50 +21,24 @@ const dynamicScreen = () => (
     </View>
 );
 
-const findScreen = () => (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Profile Screen</Text>
-    </View>
-);
-
-const myScreen = () => (
+const ProfileScreen = () => (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <Text>Profile Screen</Text>
     </View>
 );
 
 const RootTabs = createMaterialTopTabNavigator({
-    dynamic: {
-        screen: dynamicScreen,
-        navigationOptions: ({navigation}) => ({
-            title: '动态',
-
-        }),
+    Home: {
+        screen: HomeScreen,
     },
-    find: {
-        screen: findScreen,
-        navigationOptions: ({navigation}) => ({
-            title: '发现',
-        }),
+    Profile: {
+        screen: ProfileScreen,
     },
-    my:{
-        screen:myScreen,
-        navigationOptions: ({navigation}) => ({
-            title: '我的'
-        })
-    }
 },{
     tabBarPosition: 'bottom',
     animationEnabled: true,
     tabBarOptions: {
-        activeTintColor: '#28a745',
-        inactiveTintColor:'#232323',
-        style: {
-            backgroundColor: '#F2F2F2'
-        },
-        indicatorStyle: {
-            height: 0
-        }
+        activeTintColor: '#ffffff',
     }
 });
 
