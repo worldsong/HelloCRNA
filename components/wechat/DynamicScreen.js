@@ -3,6 +3,7 @@ import { FlatList, StyleSheet,View, Text,Button,Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import HeadScreen from './HeadScreen';
 
+//动态组件
 export default class DynamicScreen extends React.Component {
     static navigationOptions = {
         title: '动态',

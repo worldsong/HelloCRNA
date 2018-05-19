@@ -1,6 +1,7 @@
 import React from 'react';
 import { FlatList, StyleSheet,View, Text,Button,Image } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+
 //头部公共组件
 export default class HeadScreen extends React.Component {
     render() {
