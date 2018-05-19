@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, StyleSheet,View, Text,Button } from 'react-native';
+import { FlatList, StyleSheet,View, Text,Button,Image } from 'react-native';
 import { createMaterialTopTabNavigator } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 //头部公共组件
@@ -24,20 +24,6 @@ class HeadScreen extends React.Component {
 const DynamicScreen = () => (
     <View style={styles.container}>
         <HeadScreen></HeadScreen>
-        <Text style={styles.news}>新闻列表</Text>
-        <FlatList
-            data={[
-                {key: 'Devin'},
-                {key: 'Jackson'},
-                {key: 'James'},
-                {key: 'Joel'},
-                {key: 'John'},
-                {key: 'Jillian'},
-                {key: 'Jimmy'},
-                {key: 'Julie'},
-            ]}
-            renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-        />
     </View>
 );
 //发现组件
@@ -58,32 +44,53 @@ const RootTabs = createMaterialTopTabNavigator({
         screen: DynamicScreen,
         navigationOptions: ({navigation}) => ({
             title: '动态',
-
+            tabBarIcon: ({tintColor}) => (
+                <Icon name="ios-text-outline" size={26} color={tintColor} />
+            ),
         }),
     },
     find: {
         screen: FindScreen,
         navigationOptions: ({navigation}) => ({
             title: '发现',
+            tabBarIcon: ({tintColor}) => (
+                <Icon name="ios-bulb-outline" size={26} color={tintColor} />
+            ),
         }),
     },
     my:{
         screen:MyScreen,
         navigationOptions: ({navigation}) => ({
-            title: '我的'
+            title: '我的',
+            tabBarIcon: ({tintColor}) => (
+                <Icon name="ios-person-outline" size={26} color={tintColor} />
+            ),
         })
     }
 },{
-    tabBarPosition: 'bottom',
+    tabBarPosition: 'bottom',//选项卡位置
     animationEnabled: true,
     tabBarOptions: {
-        activeTintColor: '#28a745',
-        inactiveTintColor:'#232323',
+        activeTintColor: '#28a745',//选中颜色
+        inactiveTintColor:'#232323',//未选中颜色
+        //设置选项卡的背景颜色
         style: {
             backgroundColor: '#F2F2F2'
         },
+        //去掉安卓点击之后的小黄线
         indicatorStyle: {
             height: 0
+        },
+        //是否显示icon图标
+        showIcon:true,
+        //选项卡样式
+        tabStyle:{
+            height:46,
+        },
+        //icon样式
+        iconStyle:{
+            marginBottom:-6,
+            marginTop:10
         }
     }
 });
