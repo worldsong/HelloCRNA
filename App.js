@@ -49,12 +49,21 @@ const RootTabs = createMaterialTopTabNavigator({
             ),
         }),
     },
+    contact: {
+        screen: FindScreen,
+        navigationOptions: ({navigation}) => ({
+            title: '通讯录',
+            tabBarIcon: ({tintColor}) => (
+                <Icon name="ios-contacts-outline" size={26} color={tintColor} />
+            ),
+        }),
+    },
     find: {
         screen: FindScreen,
         navigationOptions: ({navigation}) => ({
             title: '发现',
             tabBarIcon: ({tintColor}) => (
-                <Icon name="ios-bulb-outline" size={26} color={tintColor} />
+                <Icon name="ios-compass-outline" size={26} color={tintColor} />
             ),
         }),
     },
