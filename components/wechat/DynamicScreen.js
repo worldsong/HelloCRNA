@@ -31,7 +31,7 @@ export default class DynamicScreen extends React.Component {
                                 </View>
                                 <View style={{flex:9}}>
                                     <Text onPress={() => this.props.navigation.navigate('find')} style={styles.name}>{item.name}</Text>
-                                    <Text style={styles.text}>{item.text}</Text>
+                                    <Text onPress={() => this.props.navigation.navigate('dynamicDetail',{name:'6666'})} style={styles.text}>{item.text}</Text>
                                     <Text style={styles.time}>{item.time}</Text>
                                 </View>
                             </View>

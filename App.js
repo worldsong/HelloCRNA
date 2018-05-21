@@ -1,10 +1,11 @@
 import React from 'react';
-import { createMaterialTopTabNavigator } from 'react-navigation';
+import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
 
 import FindScreen from  './components/wechat/FindScreen'
 import DynamicScreen from  './components/wechat/DynamicScreen'
 import ContactsScreen from  './components/wechat/ContactsScreen'
 import MyScreen from  './components/wechat/MyScreen'
+import DynamicDetailScreen from  './components/wechat/DynamicDetailScreen'
 
 const RootTabs = createMaterialTopTabNavigator(
     {
@@ -50,4 +51,15 @@ const RootTabs = createMaterialTopTabNavigator(
         }
 });
 
-export default RootTabs;
+// myapp路由
+const MyApp = createStackNavigator({
+    dynamicStack: {
+        screen: RootTabs
+    },
+    dynamicDetail: {
+        path: 'people/:name',
+        screen: DynamicDetailScreen,
+    },
+});
+
+export default MyApp;
