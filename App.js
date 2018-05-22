@@ -28,7 +28,7 @@ class DetailsScreen extends React.Component {
         const { params } = navigation.state;
 
         return {
-            title: params ? params.otherParam : 'A Nested Details Screen',
+            title: params.otherParam ? params.otherParam : 'A Nested Details Screen',
         }
     };
     render() {
