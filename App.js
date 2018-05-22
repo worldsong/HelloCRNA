@@ -3,6 +3,9 @@ import { Button, View, Text } from 'react-native';
 import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
 class HomeScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Home',
+    };
     render() {
         return (
             <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -21,6 +24,9 @@ class HomeScreen extends React.Component {
 }
 
 class DetailsScreen extends React.Component {
+    static navigationOptions = {
+        title: 'Details',
+    };
     render() {
         /* 2. Get the param, provide a fallback value if not available */
         const { navigation } = this.props;
