@@ -1,65 +1,59 @@
 import React from 'react';
-import { createStackNavigator, createMaterialTopTabNavigator } from 'react-navigation';
+import { Button, View, Text } from 'react-native';
+import { createStackNavigator } from 'react-navigation'; // Version can be specified in package.json
 
-import FindScreen from  './components/wechat/FindScreen'
-import DynamicScreen from  './components/wechat/DynamicScreen'
-import ContactsScreen from  './components/wechat/ContactsScreen'
-import MyScreen from  './components/wechat/MyScreen'
-import DynamicDetailScreen from  './components/wechat/DynamicDetailScreen'
+class HomeScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Text>Home Screen</Text>
+                <Button
+                    title="Go to Details"
+                    onPress={() => this.props.navigation.navigate('Details')}
+                />
+            </View>
+        );
+    }
+}
 
-const RootTabs = createMaterialTopTabNavigator(
+class DetailsScreen extends React.Component {
+    render() {
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                <Text>Details Screen</Text>
+                <Button
+                    title="Go to Details... again"
+                    onPress={() => this.props.navigation.push('Details')}
+                />
+                <Button
+                    title="Go to Home"
+                    onPress={() => this.props.navigation.navigate('Home')}
+                />
+                <Button
+                    title="Go back"
+                    onPress={() => this.props.navigation.goBack()}
+                />
+            </View>
+        );
+    }
+}
+
+const RootStack = createStackNavigator(
     {
-        dynamic: {
-            screen: DynamicScreen,
+        Home: {
+            screen: HomeScreen,
         },
-        contacts: {
-            screen: ContactsScreen,
+        Details: {
+            screen: DetailsScreen,
         },
-        find: {
-            screen: FindScreen,
-        },
-        my:{
-            screen:MyScreen,
-        }
     },
     {
-        initialRouteName: 'contacts',
-        tabBarPosition: 'bottom',//选项卡位置
-        animationEnabled: true,
-        tabBarOptions: {
-            activeTintColor: '#28a745',//选中颜色
-            inactiveTintColor:'#232323',//未选中颜色
-            //设置选项卡的背景颜色
-            style: {
-                backgroundColor: '#F2F2F2'
-            },
-            //去掉安卓点击之后的小黄线
-            indicatorStyle: {
-                height: 0
-            },
-            //是否显示icon图标
-            showIcon:true,
-            //选项卡样式
-            tabStyle:{
-                height:46,
-            },
-            //icon样式
-            iconStyle:{
-                marginBottom:-6,
-                marginTop:10
-            }
-        }
-});
+        initialRouteName: 'Home',
+    }
+);
 
-// myapp路由
-const MyApp = createStackNavigator({
-    dynamicStack: {
-        screen: RootTabs
-    },
-    dynamicDetail: {
-        path: 'people/:name',
-        screen: DynamicDetailScreen,
-    },
-});
-
-export default MyApp;
+export default class App extends React.Component {
+    render() {
+        return <RootStack />;
+    }
+}
