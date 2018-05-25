@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { createMaterialTopTabNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { createBottomTabNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
     render() {
@@ -21,8 +22,32 @@ class SettingsScreen extends React.Component {
         );
     }
 }
+export default createBottomTabNavigator(
+    {
+        Home: HomeScreen,
+        Settings: SettingsScreen,
+    },
+    {
+        navigationOptions: ({ navigation }) => ({
+            tabBarIcon: ({ focused, tintColor }) => {
+                const { routeName } = navigation.state;
+                let iconName;
+                if (routeName === 'Home') {
+                    iconName = `ios-information-circle${focused ? '' : '-outline'}`;
+                } else if (routeName === 'Settings') {
+                    iconName = `ios-options${focused ? '' : '-outline'}`;
+                }
 
-export default createMaterialTopTabNavigator({
-    Home: HomeScreen,
-    Settings: SettingsScreen,
-});
+                // You can return any component that you like here! We usually use an
+                // icon component from react-native-vector-icons
+                return <Ionicons name={iconName} size={25} color={tintColor} />;
+            },
+        }),
+        tabBarOptions: {
+            activeTintColor: 'tomato',
+            inactiveTintColor: 'gray',
+        },
+        animationEnabled: false,
+        swipeEnabled: false,
+    }
+);
