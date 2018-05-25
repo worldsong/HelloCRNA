@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from 'react-navigation';
 
 class HomeScreen extends React.Component {
     render() {
@@ -22,7 +22,7 @@ class SettingsScreen extends React.Component {
     }
 }
 
-export default createBottomTabNavigator({
+export default createMaterialTopTabNavigator({
     Home: HomeScreen,
     Settings: SettingsScreen,
 });
