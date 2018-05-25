@@ -17,6 +17,12 @@ class HomeScreen extends React.Component {
     static navigationOptions = {
         // headerTitle instead of title
         headerTitle: <LogoTitle />,
+        headerRight: (
+            <Button
+                onPress={() => alert('This is a button!')}
+                title="Info"
+            />
+        ),
     };
     render() {
         return (
