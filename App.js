@@ -1,53 +1,15 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { createBottomTabNavigator } from 'react-navigation';
+import React, { Component } from 'react';
+import { AppRegistry, View } from 'react-native';
 
-class HomeScreen extends React.Component {
+export default class FlexDirectionBasics extends Component {
     render() {
         return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Home!</Text>
+            // 尝试把`flexDirection`改为`column`看看
+            <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
+                <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
             </View>
         );
     }
-}
-
-class SettingsScreen extends React.Component {
-    render() {
-        return (
-            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <Text>Settings!</Text>
-            </View>
-        );
-    }
-}
-export default createBottomTabNavigator(
-    {
-        Home: HomeScreen,
-        Settings: SettingsScreen,
-    },
-    {
-        navigationOptions: ({ navigation }) => ({
-            tabBarIcon: ({ focused, tintColor }) => {
-                const { routeName } = navigation.state;
-                let iconName;
-                if (routeName === 'Home') {
-                    iconName = `ios-information-circle${focused ? '' : '-outline'}`;
-                } else if (routeName === 'Settings') {
-                    iconName = `ios-options${focused ? '' : '-outline'}`;
-                }
-
-                // You can return any component that you like here! We usually use an
-                // icon component from react-native-vector-icons
-                return <Ionicons name={iconName} size={25} color={tintColor} />;
-            },
-        }),
-        tabBarOptions: {
-            activeTintColor: 'tomato',
-            inactiveTintColor: 'gray',
-        },
-        animationEnabled: false,
-        swipeEnabled: false,
-    }
-);
+};
